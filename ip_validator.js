@@ -1,24 +1,8 @@
 function validIP(ip) {
-    if (!ip || typeof(ip) !== "string") {
-        return false;
-    }
+    var regex = new RegExp(/^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/g);
 
-    var split = ip.split('.')
-    if (split.length === 4) {
-        // console.log(split)
-        return split.every(el => el > -1 && el <= 255)
-    } else {
-        return false;
-    }
-
-    return true;
+    console.log((regex.test(ip) ? ip + ' is valid' : ip + ' is not valid'));
 }
 
-
-var ip = "127.0.0";
-
-if(validIP(ip)){
-    console.log(ip + " is valid");
-} else {
-    console.log(ip + " is not valid");
-}
+validIP('127.0.0');
+validIP('127.0.0.1');

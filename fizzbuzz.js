@@ -1,14 +1,16 @@
-function fizzbuzz() {
-    for (var i = 1; i <= 100; i++) {
-        var temp = ""
-        if (i % 3 === 0) {
-            temp += "Wize"
+function fizzbuzz(range, text) {
+    for (var i = 1; i <= range; i++) {
+        var fizz = (i % 3 === 0); 
+        var buzz = (i % 5 === 0);
+        var temp = '';
+        if (fizz){
+            temp += text.fizz || 'Wize';
         }
-        if (i % 5 === 0) {
-            temp += "Line"
+        if (buzz){
+            temp += text.buzz || 'Line';
         }
-        console.log(temp ? temp : i)
+        console.log(temp ? temp : i);
     }
 }
 
-fizzbuzz()
+fizzbuzz(100, {fizz: 'Wize', buzz: 'Line'});
